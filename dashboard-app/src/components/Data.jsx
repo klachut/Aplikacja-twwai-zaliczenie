@@ -14,7 +14,7 @@ export function Data() {
 
     useEffect(() => {
         const fetchAir = async() => {
-            const res = await fetch("https://dashboardv2-test.herokuapp.com/api/params/last");
+            const res = await fetch("http://dashboardv2-test.herokuapp.com/api/params/last");
             const dataRes = await res.json();
             chartDataSet(dataRes);
         }
