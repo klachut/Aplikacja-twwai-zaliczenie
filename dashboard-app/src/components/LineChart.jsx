@@ -62,7 +62,7 @@ export function LineChart() {
                ],
            };
 
-           const res = await fetch("http://dashboardv2-test.herokuapp.com/api/params")
+           const res = await fetch("https://dashboardv2-test.herokuapp.com/api/params")
            const dataRes = await res.json();
 
            data.datasets[0].data = dataRes.map(item => {
