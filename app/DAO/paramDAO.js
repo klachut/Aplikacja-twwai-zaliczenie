@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 import mongoConverter from '../service/mongoConverter';
-import * as _ from "lodash";
+
+
+
 
 const paramSchema = new mongoose.Schema({
     temp: {type: String},
@@ -15,6 +17,7 @@ const paramSchema = new mongoose.Schema({
 paramSchema.plugin(uniqueValidator);
 
 const ParamModel = mongoose.model('params', paramSchema);
+
 
 async function query() {
     const result = await ParamModel.find({});
@@ -43,10 +46,21 @@ async function getLast() {
     }
 }
 
+async function getContentData(content) {
+    const result = await ParamModel.find({date: {$regex: content}});
+    {
+        if(result) {
+            return mongoConverter(result);
+        }
+    }
+}
+
+
 export default {
     query: query,
     get: get,
     getLast,
+    getContentData,
 
     model: ParamModel
 };

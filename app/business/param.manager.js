@@ -25,10 +25,20 @@ function create() {
         }
     }
 
+    async function getFromDate(date) {
+        // funkcja pobierająca z daty
+        let result = paramDAO.getFromDate(date);
+        if(result) {
+            return result;
+        }
+    }
+
+
     return {
         query: query,
         get: get,
-        getLast
+        getLast,
+        getFromDate
     };
 }
 
