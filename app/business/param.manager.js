@@ -25,9 +25,9 @@ function create() {
         }
     }
 
-    async function getFromDate(date) {
+    async function getContentData(date) {
         // funkcja pobierająca z daty
-        let result = paramDAO.getFromDate(date);
+        let result = paramDAO.getContentData(date);
         if(result) {
             return result;
         }
@@ -38,7 +38,7 @@ function create() {
         query: query,
         get: get,
         getLast,
-        getFromDate
+        getContentData
     };
 }
 
